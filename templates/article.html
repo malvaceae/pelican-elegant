@@ -49,7 +49,7 @@
     {% if article.toc %}
     <div class="span2 table-of-content">
         <nav>
-        <h4>Contents</h4>
+        <h4>目次</h4>
         {{ article.toc }}
         </nav>
     </div>
@@ -94,7 +94,7 @@
                     {% set pv_title = pv_title + ' ' +  '<small class="subtitle">' + article.prev_article.subtitle|striptags + '</small>' %}
                         {% set ptitle = ptitle + ' - ' + article.prev_article.subtitle|e %}
                     {% endif %}
-                <li class="previous-article">« <a href="{{ SITEURL }}/{{ article.prev_article.url }}" title="Previous: {{ ptitle }}">{{ pv_title }}</a></li>
+                <li class="previous-article">« <a href="{{ SITEURL }}/{{ article.prev_article.url }}" title="前の記事: {{ ptitle }}">{{ pv_title }}</a></li>
                 {% endif %}
                 {% if article.next_article %}
                     {% set ntitle = article.next_article.title|striptags|e %}
@@ -103,7 +103,7 @@
                     {% set nv_title = nv_title + ' ' +  '<small class="subtitle">' + article.next_article.subtitle|striptags + '</small>' %}
                         {% set ntitle = ntitle + ' - ' + article.next_article.subtitle|e %}
                     {% endif %}
-                <li class="next-article"><a href="{{ SITEURL }}/{{ article.next_article.url }}" title="Next: {{ ntitle }}">{{ nv_title }}</a> »</li>
+                <li class="next-article"><a href="{{ SITEURL }}/{{ article.next_article.url }}" title="次の記事: {{ ntitle }}">{{ nv_title }}</a> »</li>
                 {% endif %}
             </ul>
             </nav>
@@ -113,20 +113,20 @@
         <section id="article-sidebar" class="span2">
             {% include '_includes/post_stats.html' %}
             {% if article.date %}
-            <h4>Published</h4>
+            <h4>投稿日</h4>
             {% set day = article.date.strftime('%d')|int %}
             <time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
             {% endif %}
             {% include '_includes/last_updated.html' %}
             {% include '_includes/series.html' %}
             {% if article.category|trim|count > 0 %}
-            <h4>Category</h4>
+            <h4>カテゴリ</h4>
             {% from '_includes/_defaults.html' import CATEGORIES_URL with context %}
             <a class="category-link" href="{{ SITEURL }}/{{ CATEGORIES_URL }}#{{ category.slug }}-ref">{{ article.category }}</a>
             {% endif %}
             {% if article.tags and article.tags[0]|trim|count > 0 %}
             {% from '_includes/_defaults.html' import TAGS_URL with context %}
-            <h4>Tags</h4>
+            <h4>タグ</h4>
             <ul class="list-of-tags tags-in-article">
                 {% for tag in article.tags|sort %}
                 <li><a href="{{ SITEURL }}/{{ TAGS_URL }}#{{ tag.slug }}-ref">{{ tag }}

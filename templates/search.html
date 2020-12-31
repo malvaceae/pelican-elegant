@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Search · {{ super() }}
+検索結果 · {{ super() }}
 {% endblock title %}
 
 {% block head_description %}
-Search results for {{ SITENAME|striptags|e }} blog.
+{{ SITENAME|striptags|e }}における検索の結果です。
 {% endblock head_description %}
 
 {% block meta_tags_in_head %}
 {{ super() }}
 {% from '_includes/_defaults.html' import FEATURED_IMAGE, SEARCH_URL with context %}
-<meta property="og:title" content="Search · {{ SITENAME|striptags|e }}"/>
-<meta name="twitter:title" content="Search · {{ SITENAME|striptags|e }}">
+<meta property="og:title" content="検索結果 · {{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="検索結果 · {{ SITENAME|striptags|e }}">
 <meta property="og:url" content="{{ SITEURL }}/{{ SEARCH_URL }}" />
-<meta property="og:description" content="Search results for {{ SITENAME|striptags|e }} blog" />
-<meta name="twitter:description" content="Search results for {{ SITENAME|striptags|e }} blog">
+<meta property="og:description" content="{{ SITENAME|striptags|e }}における検索の結果です。" />
+<meta name="twitter:description" content="{{ SITENAME|striptags|e }}における検索の結果です。">
 <meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
 <meta property="og:article:author" content="{{ AUTHOR }}" />
 {% if FEATURED_IMAGE %}
@@ -43,4 +43,9 @@ Search results for {{ SITENAME|striptags|e }} blog.
         <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
     {% endif %}
 {{ super() }}
+<script>
+    if (searchTerm) {
+        document.getElementById('tipue_search_input').value = searchTerm;
+    }
+</script>
 {% endblock script %}

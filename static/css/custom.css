@@ -1,0 +1,128 @@
+:root {
+  --sansFontFamily: inherit;
+  --serifFontFamily: 'Noto Serif JP', serif;
+  --serifHeadingFontFamily: inherit;
+}
+* {
+  word-break: break-word;
+}
+body {
+  font-family: var(--serifFontFamily);
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.4rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+h6 {
+  font-size: 1rem;
+}
+h1#recent-posts, h1#my-projects {
+  border-bottom: var(--headingBorderBottomWidth) var(--headingBorderBottomStyle)
+    transparent;
+}
+h1#recent-posts {
+  line-height: 1.3em;
+}
+.site-name {
+  font-family: inherit;
+}
+.navbar .nav > li:last-child {
+  margin-left: 10px;
+}
+.navbar .nav > li > a {
+  font-size: inherit;
+}
+.navbar-search {
+  margin-top: 6px;
+}
+.navbar-search .search-query {
+  font-family: inherit;
+}
+@media (max-width: 979px) {
+  .navbar .nav-collapse .nav.pull-right {
+    margin-top: 10px;
+  }
+  .navbar .nav > li:last-child {
+    margin-left: 0;
+  }
+  .nav-collapse .navbar-search {
+    margin: 0;
+  }
+  .navbar-search .search-query {
+    width: calc(100% - 30px);
+  }
+}
+.row-fluid > [class*="span"] {
+  min-height: 0;
+}
+@media (min-width: 768px) {
+  .row-fluid > [class*="span"] {
+    min-height: 30px;
+  }
+}
+.page-header {
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .page-header {
+    margin-top: 20px;
+  }
+}
+ul.list-projects {
+  margin-bottom: 20px;
+}
+#allposts {
+  font-size: 1.2rem;
+}
+div.recent-posts-posted a {
+  padding-left: 0;
+}
+section#article-sidebar h4, nav h4 {
+  margin-bottom: 5px;
+}
+.table-of-content .toc {
+  margin-bottom: 20px;
+}
+input, button, select, textarea {
+  font-family: inherit;
+}
+.codecopy button.codecopy-btn {
+  color: white;
+}
+.codecopy button.codecopy-btn:focus {
+  -webkit-tap-highlight-color: transparent;
+}
+.codecopy button.codecopy-btn:focus, .btn:focus {
+  outline: none;
+}
+article p:not(#list-of-translations):not(#post-share-links) a:not(.ampl) {
+  display: inline;
+}
+ul, ol {
+  margin-bottom: 20px;
+}
+li {
+  word-break: break-all;
+}
+pre code {
+  white-space: inherit;
+}
+footer {
+  padding: 0;
+}
+@media (min-width: 768px) {
+  footer {
+    padding: 0 20px;
+  }
+}

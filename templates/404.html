@@ -21,8 +21,8 @@ Page does not exist at {{ SITENAME|striptags|e }} blog.
         <div class="input-append">
             {% from '_includes/_defaults.html' import SEARCH_URL with context %}
             <form action="{{ SITEURL }}/{{ SEARCH_URL }}" onsubmit="return validateForm(this.elements['q'].value)">
-                <input type="text" class="span12" placeholder="Search" name="q" id="tipue_search_input_404">
-                <button class="btn" type="submit">Search</button>
+                <input type="text" class="span12" placeholder="キーワード" name="q" id="tipue_search_input_404">
+                <button class="btn" type="submit">検索</button>
             </form>
         </div>
     </div>
@@ -30,19 +30,19 @@ Page does not exist at {{ SITENAME|striptags|e }} blog.
 
 <script type="text/javascript">
     // Get Current location as the initial search item
-    var newurl = (' ' + window.location.pathname).slice(1);
+    // var newurl = (' ' + window.location.pathname).slice(1);
 
     // Replace "/" in path into spaces
-    var newurl = newurl.replace(/\//g, ' ');
+    // var newurl = newurl.replace(/\//g, ' ');
 
     // Remove html extension
-    var newurl = newurl.replace(/.html/g, ' ');
+    // var newurl = newurl.replace(/.html/g, ' ');
 
     // Replace - by ' '
-    var newurl = newurl.replace(/\-/g, ' ');
+    // var newurl = newurl.replace(/\-/g, ' ');
 
     // Fill search field with resulting string
-    document.getElementById('tipue_search_input_404').value = newurl;
+    // document.getElementById('tipue_search_input_404').value = newurl;
 </script>
 
 {% endblock content %}

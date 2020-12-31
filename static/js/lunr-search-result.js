@@ -19,6 +19,7 @@ function lunr_search(term) {
     this.field("url");
     this.field("text", { boost: 10 });
     this.field("tags");
+    this.use(lunr.ja);
 
     items.forEach(function(doc) {
       this.add(doc);
@@ -30,7 +31,7 @@ function lunr_search(term) {
       "lunr-search-result-heading"
     );
     const resultIntro = `
-    <h1>Search Results for <code>${term}</code></h1>
+    <h1><b>${term}</b>の検索結果</h1>
     `;
 
     resultHeadingRoot.insertAdjacentHTML("beforeend", resultIntro);
@@ -62,7 +63,7 @@ function lunr_search(term) {
         resultRoot.insertAdjacentHTML("beforeend", resultItem);
       }
     } else {
-      const resultFailure = `<p class="lunr-result-fail">No results found for <span class="lunr-search-term">${term}</span></p>`;
+      const resultFailure = `<p class="lunr-result-fail"><b class="lunr-search-term">${term}</b>に関連する記事は見つかりませんでした。</p>`;
 
       resultRoot.insertAdjacentHTML("beforeend", resultFailure);
     }

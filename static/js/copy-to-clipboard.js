@@ -1,10 +1,10 @@
 const copyToClipboardDefaultText = {
-  innerText: "Copy",
-  ariaLabel: "Copy to clipboard"
+  innerText: "コピー",
+  ariaLabel: "クリップボードにコピーします"
 };
 const copyToClipboardSuccessText = {
-  innerText: "Copied!",
-  ariaLabel: "Copied to clipboard"
+  innerText: "コピーしました！",
+  ariaLabel: "クリップボードにコピーしました"
 };
 
 // Get all pre. But ignore line numbers section
@@ -34,7 +34,7 @@ document.querySelectorAll("div.highlight pre").forEach(snippet => {
 // Add copy to clipboard functionality
 const clipboard = new ClipboardJS(".codecopy-btn", {
   target: trigger => {
-    return trigger.parentNode;
+    return trigger.nextElementSibling;
   }
 });
 
@@ -48,5 +48,5 @@ clipboard.on("success", e => {
   setTimeout(() => {
     e.trigger.innerText = copyToClipboardDefaultText.innerText;
     e.trigger.setAttribute("aria-label", copyToClipboardDefaultText.ariaLabel);
-  }, 400);
+  }, 800);
 });
